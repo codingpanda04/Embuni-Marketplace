@@ -77,9 +77,10 @@ export default function Rentals() {
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
   };
+  
 
   return (
-    <div className="px-4 md:px-10 py-8 mt-[-100px]">
+    <div className="px-4 md:px-10 py-8 mt-[-30px] overflow-x-hidden">
       {/* Search bar */}
       <div className="flex justify-center mb-6">
         <div className="relative w-full max-w-2xl">
@@ -177,7 +178,7 @@ export default function Rentals() {
             {filteredRentals.map((rental) => (
               <div
                 key={rental._id}
-                className="border rounded-2xl p-4 shadow-sm hover:shadow-lg transition relative bg-white"
+                className="border rounded-2xl p-4 shadow-sm hover:shadow-lg transition relative bg-white w-90 md:w-full"
               >
                 {/* Heart icon */}
                 <button className="absolute top-3 right-3 bg-white p-1 rounded-full shadow hover:scale-110 transition">
@@ -186,11 +187,14 @@ export default function Rentals() {
 
                 {/* Rental Image */}
                 <Link to={`/rentals/${rental._id}`}>
+                <div className="w-full aspect-ratio-4/3 overflow-hidden rounded-xl">
                   <img
                     src={rental.images[0]}
                     alt={rental.name}
                     className="w-full h-48 object-cover rounded-xl"
+                    loading="lazy"
                   />
+                </div>
                 </Link>
 
                 {/* Details */}
