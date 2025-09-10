@@ -68,7 +68,7 @@ export const deleteProduct = async (req, res) => {
 
 export const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find().populate("seller", "businessName whatsappNumber proleImage followers");
+    const products = await Product.find().populate("seller", "businessName whatsappNumber proleImage followers").sort({created at: -1});
     res.json({ success: true, products });
   } catch (error) {
     res.json({ success: false, message: error.message });
