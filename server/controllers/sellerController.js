@@ -193,11 +193,11 @@ export const goPremium = async(req, res)=>{
     const token = await getToken();
 
     const orderDetails = {
-      id: sellerId,   // use sellerId as orderId (easier to track)
+      id: `${sellerId}-${Date.now()}`,   // use sellerId as orderId (easier to track)
       currency: "KES",
       amount: 10,   // premium subscription price
       description: "Embuni Premium Seller Subscription",
-      callback_url: "https://embuni-marketplace.onrender.com/api/seller/premium",
+      callback_url: "https://embuni-marketplace.vercel.app/sell/premium",
       notification_id: "1aca9402-c898-4333-a759-db64409450f1",
       billing_address: {
         email_address: user.email,
