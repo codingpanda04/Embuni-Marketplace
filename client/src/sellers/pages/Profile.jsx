@@ -104,6 +104,7 @@ const SellerProfile = () => {
           <p className="text-xs text-gray-500">Click image to upload new photo</p>
           <h2 className="text-xl font-semibold text-gray-800">
             {profile.businessName}
+            {profile.premium === true ? "Premium Seller" : ""}
           </h2>
           <p className="text-sm text-gray-500">Joined {profile.createdAt}</p>
         </div>
